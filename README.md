@@ -19,7 +19,40 @@ O projeto umsite(Umbu) é um sistema de gerenciamento para um site de jardinagem
    - Compatível com Windows, Linux e macOS.
 
 4. **Dependências:**
-   - [Lista de dependências, se aplicável]
+   - Maven
+Se estiver utilizando o Maven, adicione as seguintes dependências ao seu arquivo pom.xml:
+
+xml
+Copy code
+<!-- Dependências do Spring Boot -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+<!-- Dependência para o MySQL -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+Essas dependências incluem o Spring Data JPA para persistência de dados e o Spring Web para construção de APIs REST. A dependência do MySQL Connector Java é necessária para conectar seu aplicativo Spring Boot ao banco de dados MySQL.
+
+Lembre-se de que você também precisará configurar as propriedades do banco de dados no arquivo application.properties ou application.yml. Aqui está um exemplo básico para o MySQL:
+
+properties
+Copy code
+# Configurações do banco de dados MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/seu_banco_de_dados
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+Além disso, certifique-se de que a anotação @SpringBootApplication esteja presente em sua classe principal para inicializar o aplicativo Spring Boot corretamente.
+
 
 5. **Configuração do Ambiente:**
    - Antes de iniciar, certifique-se de configurar as seguintes variáveis de ambiente:
